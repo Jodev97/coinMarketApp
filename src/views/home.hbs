@@ -1,0 +1,36 @@
+<h1 class="text-center">Coinmarket</h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>24H Change</th>
+            <th>Price</th>
+            <th>Market cap</th>
+          </tr>
+        </thead>
+        <tbody>
+            {{#each data}}
+                <tr key={{id}}>
+                    <td> 
+                      <img 
+                        src={{image}} 
+                        width="25"
+                        height="25"
+                        style='marginRight: 10;' 
+                      />
+                      {{toLowerCase symbol}}
+                    </td>
+                     <td>
+                        <span
+                          {{#isPositive price_change_percentage_24h}}{{/isPositive}}
+                          >
+                          {{formatPercent price_change_percentage_24h}}
+                        </span>
+                      </td>
+                     <td>{{formatDollar current_price 20}}</td>
+                     <td>{{formatDollar market_cap 12}}</td>
+                </tr>
+            {{/each}}
+
+        </tbody>
+      </table>
